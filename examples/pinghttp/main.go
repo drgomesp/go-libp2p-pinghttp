@@ -30,7 +30,7 @@ func main() {
 	}
 
 	go func() {
-		_ = svc.ListenAndServe()
+		_ = svc.ListenAndServe(ctx)
 	}()
 
 	log.Println(fmt.Sprintf("visit: http://localhost:4000/v1/ping?peerId=%s", h2.ID().String()))

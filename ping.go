@@ -38,23 +38,20 @@ func WithServeMux(mux *runtime.ServeMux) ServiceOption {
 }
 
 func NewHttpPingService(ctx context.Context, h host.Host, opts ...ServiceOption) (*HttpPingService, error) {
-	svc := &HttpPingService{host: h, mux: runtime.NewServeMux()}
-
-	grpcServer, err := libp2pgrpc.NewGrpcServer(ctx, svc.host)
-	svc.grpcsrv = grpcServer
-	svc.pingsvc = libp2p.NewPingService(h)
-
+	s := &HttpPingService{host: h, mux: runtime.NewServeMux()}
 	for _, opt := range opts {
-		opt(svc)
+		opt(s)
 	}
+	grpcServer, err := libp2pgrpc.NewGrpcServer(ctx, s.host)
+	s.grpcsrv = grpcServer
+	s.pingsvc = libp2p.NewPingService(s.host)
 
-	v1.RegisterPingServiceServer(svc.grpcsrv, svc)
-	err = v1.RegisterPingServiceHandlerServer(ctx, svc.mux, svc)
+	v1.RegisterPingServiceServer(s.grpcsrv, s)
+	err = v1.RegisterPingServiceHandlerServer(ctx, s.mux, s)
 	if err != nil {
 		return nil, err
 	}
-
-	return svc, nil
+	return s, nil
 }
 
 func (s *HttpPingService) Ping(ctx context.Context, req *v1.PingRequest) (*v1.PingResponse, error) {
@@ -72,6 +69,6 @@ func (s *HttpPingService) Ping(ctx context.Context, req *v1.PingRequest) (*v1.Pi
 	return &v1.PingResponse{Duration: res.RTT.String()}, nil
 }
 
-func (s *HttpPingService) ListenAndServe() error {
+func (s *HttpPingService) ListenAndServe(ctx context.Context) error {
 	return http.ListenAndServe(s.httpAddr, s.mux)
 }

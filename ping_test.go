@@ -60,6 +60,7 @@ func TestPing(t *testing.T) {
 	assert.NoError(t, err)
 
 	res, err := pingService.Ping(ctx, &v1.PingRequest{PeerId: hb.ID().String()})
+
 	assert.NoError(t, err)
 	assert.NotNil(t, res)
 
