@@ -20,7 +20,7 @@
 ```bash
 go get github.com/drgomesp/go-libp2p-pinghttp
 ```
-
+g
 ## Features
 
 
@@ -73,4 +73,3 @@ PRs accepted.
 ## License
 
 MIT © [Daniel Ribeiro](https://github.com/drgomesp)
-

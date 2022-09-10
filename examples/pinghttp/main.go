@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	"github.com/libp2p/go-libp2p"
@@ -29,10 +28,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	go func() {
-		_ = svc.ListenAndServe(ctx)
-	}()
+	go svc.ListenAndServe(ctx)
 
-	log.Println(fmt.Sprintf("visit: http://localhost:4000/v1/ping?peerId=%s", h2.ID().String()))
+	log.Printf("visit: http://localhost:4000/v1/ping?peerId=%s", h2.ID().String())
 	<-ctx.Done()
 }
