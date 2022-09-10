@@ -1,0 +1,11 @@
+ignore:
+  - "examples"
+  - "proto"
+coverage:
+  status:
+    changes: false
+    patch: true
+    project: true
+
+comment:
+  after_n_builds: 6

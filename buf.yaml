@@ -1,0 +1,4 @@
+version: v1
+name: buf.build/drgomesp/go-libp2p-pinghttp
+deps:
+  - buf.build/googleapis/googleapis
