@@ -7,14 +7,15 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/libp2p/go-libp2p/core/host"
 	"github.com/libp2p/go-libp2p/core/peerstore"
-	"github.com/libp2p/go-libp2p/p2p/protocol/ping"
 	"github.com/multiformats/go-multiaddr"
 	"github.com/stretchr/testify/assert"
+
+	libp2pping "github.com/drgomesp/go-libp2p-pinghttp"
+	v1 "github.com/drgomesp/go-libp2p-pinghttp/proto/v1"
 )
 
 func newHost(t *testing.T, addrStr string, randseed int64, opts ...libp2p.Option) host.Host {
@@ -55,8 +56,11 @@ func TestPing(t *testing.T) {
 
 	ha.Peerstore().AddAddrs(hb.ID(), hb.Addrs(), peerstore.PermanentAddrTTL)
 
-	pingService := ping.NewPingService(ha)
+	pingService, err := libp2pping.NewHttpPingService(ctx, ha)
+	assert.NoError(t, err)
 
-	res := <-pingService.Ping(ctx, hb.ID())
-	spew.Dump(res)
+	res, err := pingService.Ping(ctx, &v1.PingRequest{PeerId: hb.ID().String()})
+	assert.NoError(t, err)
+	assert.NotNil(t, res)
+
 }
