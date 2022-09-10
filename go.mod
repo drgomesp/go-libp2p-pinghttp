@@ -3,8 +3,6 @@ module github.com/drgomesp/go-libp2p-pinghttp
 go 1.18
 
 require (
-	github.com/davecgh/go-spew v1.1.1
-	github.com/drgomesp/go-libp2p-hostinfo v0.1.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3
 	github.com/libp2p/go-libp2p v0.22.1-0.20220903105754-11279c65c99d
 	github.com/multiformats/go-multiaddr v0.7.0
