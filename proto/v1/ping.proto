@@ -4,7 +4,6 @@ package proto.v1;
 
 option go_package = "github.com/drgomesp/go-libp2p-pinghttp/proto/pinghttp/v1";
 
-import "google/protobuf/timestamp.proto";
 import "google/api/annotations.proto";
 
 message PingRequest {

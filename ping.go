@@ -48,13 +48,15 @@ func NewHttpPingService(ctx context.Context, h host.Host, opts ...ServiceOption)
 	}
 
 	s.grpcsrv = grpcServer
-	s.pingsvc = libp2p.NewPingService(s.host)
 
 	v1.RegisterPingServiceServer(s.grpcsrv, s)
 	err = v1.RegisterPingServiceHandlerServer(ctx, s.mux, s)
 	if err != nil {
 		return nil, err
 	}
+
+	s.pingsvc = libp2p.NewPingService(s.host)
+
 	return s, nil
 }
 
