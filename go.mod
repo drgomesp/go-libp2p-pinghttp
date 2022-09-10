@@ -3,10 +3,14 @@ module github.com/drgomesp/go-libp2p-pinghttp
 go 1.18
 
 require (
+	github.com/drgomesp/go-libp2p-grpc v0.1.1-0.20220906175217-ef416e7c228a
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3
 	github.com/libp2p/go-libp2p v0.22.1-0.20220903105754-11279c65c99d
 	github.com/multiformats/go-multiaddr v0.7.0
 	github.com/stretchr/testify v1.8.0
+	google.golang.org/genproto v0.0.0-20220908141613-51c1cc9bc6d0
+	google.golang.org/grpc v1.49.0
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
@@ -15,10 +19,10 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/containerd/cgroups v1.0.4 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
-	github.com/drgomesp/go-libp2p-grpc v0.1.1-0.20220906175217-ef416e7c228a // indirect
 	github.com/elastic/gosigar v0.14.2 // indirect
 	github.com/flynn/noise v1.0.0 // indirect
 	github.com/francoispqt/gojay v1.2.13 // indirect
@@ -94,9 +98,6 @@ require (
 	golang.org/x/sys v0.0.0-20220908164124-27713097b956 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.12 // indirect
-	google.golang.org/genproto v0.0.0-20220908141613-51c1cc9bc6d0 // indirect
-	google.golang.org/grpc v1.49.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
