@@ -1,11 +1,11 @@
-# go-libp2p-grpc
+# go-libp2p-pinghttp
 
 [![madeby](https://img.shields.io/badge/made%20by-%40drgomesp-blue)](https://github.com/drgomesp/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/drgomesp/go-libp2p-pinghttp)](https://goreportcard.com/report/github.com/drgomesp/go-libp2p-pinghttp)
 [![build](https://github.com/drgomesp/go-libp2p-pinghttp/actions/workflows/go-test.yml/badge.svg?style=squared)](https://github.com/drgomesp/go-libp2p-pinghttp/actions)
 [![codecov](https://codecov.io/gh/drgomesp/go-libp2p-pinghttp/branch/main/graph/badge.svg?token=BRMFJRJV2X)](https://codecov.io/gh/drgomesp/go-libp2p-pinghttp)
 
-> 
+> Expose a Libp2p host's Ping service through HTTP.
 
 ## Table of Contents
 
