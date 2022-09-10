@@ -1,22 +1,26 @@
 syntax = "proto3";
 
-package pinghttp.proto.v1;
+package proto.v1;
 
-option go_package = "github.com/drgomesp/go-libp2p-pinghttp/proto/pinghttp/v1/gen";
+option go_package = "github.com/drgomesp/go-libp2p-pinghttp/proto/pinghttp/v1";
 
+import "google/protobuf/timestamp.proto";
 import "google/api/annotations.proto";
 
 message PingRequest {
   string peer_id = 1;
 }
 
-message PingResponse {}
+message PingResponse {
+  string duration = 1;
+  string error = 2;
+}
 
 service PingService {
   // Echo asks a node to respond with a message.
   rpc Ping(PingRequest) returns (PingResponse) {
     option (google.api.http) = {
-        get: "/v1/node/info"
+        get: "/v1/ping"
     };
   }
 }

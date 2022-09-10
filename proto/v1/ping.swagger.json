@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/node/info": {
+    "/v1/ping": {
       "get": {
         "summary": "Echo asks a node to respond with a message.",
         "operationId": "PingService_Ping",
@@ -79,9 +79,8 @@
     "v1PingResponse": {
       "type": "object",
       "properties": {
-        "rtt": {
-          "type": "string",
-          "format": "date-time"
+        "duration": {
+          "type": "string"
         },
         "error": {
           "type": "string"
